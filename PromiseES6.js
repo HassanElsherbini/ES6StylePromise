@@ -14,7 +14,6 @@ function $Promise(executor){
   }
   
   $Promise.prototype._internalResolve = function(value){
-    //console.log("this is", this)
     if (this._state === 'pending'){
       this._state = 'fulfilled';
       this._value = value;
@@ -44,7 +43,6 @@ function $Promise(executor){
   };
   
   $Promise.prototype.settler = function(){
-  
     if (this._handlerGroups.length > 0){
       if (this._state !== "pending"){
         this._callHandlers();
